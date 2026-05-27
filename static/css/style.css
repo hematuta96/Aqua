@@ -1,0 +1,103 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+    --text-color: #333;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --primary: #00796b;
+    --secondary: #00acc1;
+    --danger: #e53935;
+    --safe: #43a047;
+    --warning: #fbc02d;
+}
+
+body.dark-mode {
+    --bg-gradient: linear-gradient(135deg, #121f28 0%, #1a3644 100%);
+    --text-color: #f1f1f1;
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background: var(--bg-gradient); color: var(--text-color); min-height: 100vh; transition: 0.3s; }
+
+/* Wave Animation */
+.wave-animation {
+    background-size: 400% 400%;
+    animation: waveEffect 10s ease infinite;
+}
+@keyframes waveEffect { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+/* Glassmorphism */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.glass-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2rem; background: var(--glass-bg); backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--glass-border);
+}
+.glass-nav ul { list-style: none; display: flex; gap: 15px; align-items: center; }
+.glass-nav a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: 0.2s;}
+.glass-nav a:hover { color: var(--primary); }
+
+.container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+.section-card { margin-bottom: 2rem; animation: slideUp 0.6s ease-out; }
+
+/* Forms & Buttons */
+input, textarea, select {
+    width: 100%; padding: 12px; margin-bottom: 15px;
+    border: 1px solid var(--glass-border); border-radius: 8px;
+    background: rgba(255,255,255,0.2); color: var(--text-color); outline: none;
+}
+.btn {
+    padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;
+    font-weight: bold; transition: transform 0.2s, box-shadow 0.2s; color: white; display: inline-block;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.primary-btn { background: var(--primary); }
+.secondary-btn { background: var(--secondary); }
+.danger-btn { background: var(--danger); }
+.sm-btn { padding: 6px 12px; font-size: 0.9rem; }
+.w-100 { width: 100%; }
+
+/* Scanner */
+.scanner-container { width: 100%; max-width: 500px; margin: 0 auto 1rem; border-radius: 10px; overflow: hidden; background: #000; }
+video { width: 100%; height: auto; display: block; }
+.btn-group { display: flex; gap: 10px; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+
+/* Utilities */
+.hidden { display: none; }
+.mt-2 { margin-top: 1.5rem; }
+.text-center { text-align: center; }
+.hero { text-align: center; padding: 4rem 1rem; }
+.hero h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+
+/* Scan History Grid */
+.history-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;}
+.history-item { border-radius: 8px; overflow: hidden; background: rgba(0,0,0,0.05); text-align: center; padding-bottom: 10px;}
+.history-item img { width: 100%; height: 100px; object-fit: cover; }
+.hist-details { padding: 5px; font-size: 0.85rem; }
+
+/* Status Colors */
+.status-safe { color: var(--safe); }
+.status-warning { color: var(--warning); }
+.status-danger { color: var(--danger); }
+
+/* Auth */
+.auth-bg { display: flex; justify-content: center; align-items: center; height: 100vh; }
+.auth-card { width: 100%; max-width: 400px; text-align: center; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .glass-nav { flex-direction: column; gap: 10px; }
+    .glass-nav ul { flex-wrap: wrap; justify-content: center; }
+}
